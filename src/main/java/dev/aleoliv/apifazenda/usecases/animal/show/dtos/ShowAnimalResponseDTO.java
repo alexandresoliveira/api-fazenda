@@ -11,5 +11,6 @@ public class ShowAnimalResponseDTO {
 
 	private UUID id;
 	private String tag;
+	private UUID idFazenda;
 	private String fazenda;
 }

@@ -3,6 +3,8 @@ package dev.aleoliv.apifazenda.usecases.animal.show.controllers;
 import java.util.List;
 import java.util.UUID;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,6 +21,8 @@ import dev.aleoliv.apifazenda.usecases.animal.show.services.ShowAnimalService;
 @RestController
 @RequestMapping(value = "animal")
 public class ShowAnimalController {
+	
+	private static final Logger logger = LogManager.getLogger("animalLogger");
 
 	private final ShowAnimalService service;
 
@@ -30,6 +34,7 @@ public class ShowAnimalController {
 	@ResponseBody
 	@ResponseStatus(HttpStatus.OK)
 	public List<ShowAnimalResponseDTO> handle() {
+		logger.info("animal: handle = show all");
 		return service.execute();
 	}
 
