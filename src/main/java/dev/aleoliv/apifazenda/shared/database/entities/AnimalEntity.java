@@ -23,7 +23,7 @@ import lombok.NoArgsConstructor;
 @EqualsAndHashCode(callSuper = false)
 public class AnimalEntity extends BaseEntity {
 
-	@Column(unique = true)
+	@Column
 	@NotNull
 	@Size(min = 1, max = 80)
 	private String tag;
