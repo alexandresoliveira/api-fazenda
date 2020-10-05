@@ -7,5 +7,6 @@ import lombok.Getter;
 @Getter
 public class ShowFazendaResponseDTO {
 
+	private String id;
 	private String nome;
 }

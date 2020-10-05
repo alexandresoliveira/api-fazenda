@@ -33,6 +33,6 @@ public class ShowFazendaService {
 		if (optionalEntity.isPresent()) {
 			return mapper.convertDtoWith(optionalEntity.get());
 		}
-		throw new ServiceException("Entity not found!");
+		throw new ServiceException("Fazenda not found!");
 	}
 }
