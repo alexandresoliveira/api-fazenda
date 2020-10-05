@@ -22,7 +22,7 @@ public class DeleteAnimalController {
 		this.service = service;
 	}
 
-	@DeleteMapping(value = "id")
+	@DeleteMapping(value = "{id}")
 	@ResponseStatus(HttpStatus.NO_CONTENT)
 	public void handle(@PathVariable("id") UUID id) throws ServiceException {
 		service.execute(id);
