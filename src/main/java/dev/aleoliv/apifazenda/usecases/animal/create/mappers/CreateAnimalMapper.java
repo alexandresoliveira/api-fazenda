@@ -26,6 +26,7 @@ public class CreateAnimalMapper {
 		
 		this.mapperFactory
 			.classMap(CreateAnimalResponseDTO.class, AnimalEntity.class)
+			.field("idFazenda", "fazenda.id")
 			.field("fazenda", "fazenda.nome")
 			.byDefault()
 			.register();

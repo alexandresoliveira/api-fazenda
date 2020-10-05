@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
+import dev.aleoliv.apifazenda.shared.exceptions.ServiceException;
 import dev.aleoliv.apifazenda.usecases.animal.create.dtos.CreateAnimalRequestDTO;
 import dev.aleoliv.apifazenda.usecases.animal.create.dtos.CreateAnimalResponseDTO;
 import dev.aleoliv.apifazenda.usecases.animal.create.services.CreateAnimalService;
@@ -28,7 +29,7 @@ public class CreateAnimalController {
 	@PostMapping(consumes = { MediaType.APPLICATION_JSON_VALUE }, produces = { MediaType.APPLICATION_JSON_VALUE })
 	@ResponseBody
 	@ResponseStatus(HttpStatus.CREATED)
-	public CreateAnimalResponseDTO handle(@RequestBody @Valid CreateAnimalRequestDTO dto) {
+	public CreateAnimalResponseDTO handle(@RequestBody @Valid CreateAnimalRequestDTO dto) throws ServiceException {
 		return service.execute(dto);
 	}
 }
