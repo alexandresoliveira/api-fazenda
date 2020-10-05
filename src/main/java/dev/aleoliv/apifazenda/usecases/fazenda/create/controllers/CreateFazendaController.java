@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
+import dev.aleoliv.apifazenda.shared.exceptions.ServiceException;
 import dev.aleoliv.apifazenda.usecases.fazenda.create.dtos.CreateFazendaRequestDTO;
 import dev.aleoliv.apifazenda.usecases.fazenda.create.dtos.CreateFazendaResponseDTO;
 import dev.aleoliv.apifazenda.usecases.fazenda.create.services.CreateFazendaService;
@@ -32,8 +33,8 @@ public class CreateFazendaController {
 	@PostMapping(consumes = { MediaType.APPLICATION_JSON_VALUE }, produces = { MediaType.APPLICATION_JSON_VALUE })
 	@ResponseBody
 	@ResponseStatus(HttpStatus.CREATED)
-	public CreateFazendaResponseDTO handle(@RequestBody @Valid CreateFazendaRequestDTO dto) {
-		log.info("CreateFazendaController - CreateFazendaRequestDTO");
+	public CreateFazendaResponseDTO handle(@RequestBody @Valid CreateFazendaRequestDTO dto) throws ServiceException {
+		log.info("CreateFazendaController::handle");
 		return service.execute(dto);
 	}
 }
